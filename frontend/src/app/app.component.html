@@ -1,0 +1,38 @@
+<div class="container">
+  <div>
+    <h4 class="head">Current Weather Situations</h4>
+  </div>
+  <div>
+    <mat-card class="card">
+      <mat-card-content>
+        <mat-label>Weather</mat-label>
+        <br />
+        <br />
+        <form #location="ngForm">
+          <mat-form-field class="example">
+            <input matInput name="location" id="location" ngModel placeholder="Enter location">
+          </mat-form-field>
+          <button mat-button class="search" (click)="search(location)">Search</button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div>
+    <mat-card class="display">
+      <mat-card-content>
+        <mat-label>Display</mat-label>
+        <br />
+        <br />
+        <div *ngIf="weatherData">
+          <p>Location: {{weatherData.name}}</p>
+          <p>Current Weather conditions: {{ weatherData.base}}</p>
+        <p>Temperature: {{ weatherData.main.temp }}°C</p>
+        <p>Humidity: {{ weatherData.main.humidity }}</p>
+        <p>Wind: {{ weatherData.wind.speed}}</p>
+
+        </div>
+      </mat-card-content>
+    </mat-card>
+  
+  </div>
+</div>
